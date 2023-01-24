@@ -10,7 +10,8 @@ namespace hanojskeveze
     internal class Hanojskeveze
     {
         private bool hotovo = false;
-        public const int pocetKotoucu = 10;
+        public const int pocetKotoucu = 9;
+        int moves = 0;
        
         public Stack<int>[] towers = new Stack<int>[3];
         Stopwatch watch = new System.Diagnostics.Stopwatch();
@@ -91,7 +92,7 @@ namespace hanojskeveze
                         break;
                     }
                 }
-
+                moves++;
                 Console.WriteLine(VypisKotouce());
                 
                 int positionOfBigger = -1;
@@ -104,6 +105,7 @@ namespace hanojskeveze
                         watch.Stop();
                         hotovo = true;
                         Console.WriteLine($"Total Execution Time: {watch.ElapsedMilliseconds} ms");
+                        Console.WriteLine("Moves: " + moves);
                     }
                 }
 
@@ -137,6 +139,7 @@ namespace hanojskeveze
                         towers[positionOfBigger].Push(x);
                     }
                 }
+                moves++;
 
             }
         }
